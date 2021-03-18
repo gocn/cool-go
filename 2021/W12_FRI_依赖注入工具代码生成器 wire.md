@@ -6,6 +6,9 @@
 
 wire是一个代码生成工具，它通过自动生成代码的方式完成依赖注入。
 
+## 应用场景
+wire作为依赖注入的代码生成工具，非常适合复杂对象的创建。而在大型项目中，拥有一个合适的依赖注入的框架将使得项目的开发与维护十分便捷。
+
 ## Wire核心概念
 
 **wire** 中最核心的两个概念就是Injector和Provider。 
@@ -171,7 +174,7 @@ wire.FieldsOf(new(Leaf),"Name")
 这里的代码是等价的，但是却不能和上面的代码共存，原因稍后会解释。
 
 ### Value
-Value函数为基本类型的属性绑定具体值,在基于需求的基础上简化代码。
+Value函数为基本类型的属性绑定具体值，在基于需求的基础上简化代码。
 ```go
 
 func NewLeaf()Leaf{
@@ -194,7 +197,7 @@ wire.InterfaceValue(new(io.Reader),os.Stdin)
 
 ## 返回值的特殊情况
 ### 返回值 error
-wire是支持返回对象的同时携带error的。对于error类型的返回值,wire也能很好的处理。
+wire是支持返回对象的同时携带error的。对于error类型的返回值，wire也能很好的处理。
 ```go
 //main.go
 func NewLeaf(name string) (Leaf, error) { return Leaf{Name: name}, nil }
@@ -220,7 +223,7 @@ func InitRoot(name string) (Root, error) {
 可以看到当Provider中出现error的返回值时，Injector函数的返回值中也必须携带error的返回值
 
 ### 清理函数CleanUp
-清理通常出现在有文件对象,socket对象参与的构建函数中，无论是出错后的资源关闭，还是作为正常获得对象后的析构函数都是有必要的。
+清理通常出现在有文件对象，socket对象参与的构建函数中，无论是出错后的资源关闭，还是作为正常获得对象后的析构函数都是有必要的。
 
 清理函数通常作为第二返回值，参数类型为func()，即为无参数无返回值的函数对象。跟error一样，当Provider中的任何一个拥有清理函数，Injector的函数签名返回值中也必须包含该函数类型。
 ```go
@@ -269,7 +272,7 @@ func InitRoot(name string, account Account) (Root, func()) {...}
 每一个Provider都是一个组件的生成方法，如果有两个Provider生成同一类组件，那么在构建过程中就会产生冲突，这里需要特别注意，保证组件的类型唯一性。
 
 ### 循环构建
-循环构建,这一种流程是需要控制的，当wire检查构建的流程含有闭环构建的时候，就会报错。
+循环构建指的是多个Provider相互提供参数和返回值形成一个闭环。 当wire检查构建的流程含有闭环构建的时候，就会报错。
 ```go
 type Root struct{
     B Branch
