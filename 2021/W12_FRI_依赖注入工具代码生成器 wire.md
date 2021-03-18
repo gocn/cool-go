@@ -1,6 +1,8 @@
 # Golang | wire库
 
-简介 什么是wire：
+##### 推荐编辑：不落凡尘
+
+## 简介 
 
 wire是一个代码生成工具，它通过自动生成代码的方式完成依赖注入。
 
@@ -143,6 +145,7 @@ Struct函数用于简化结构体的Provider，当结构体的Provider仅仅是�
 //当Leaf中成员变量很多时，或者只需要部分初始化时，构造函数会变得很复杂
 func NewLeaf(name string) Leaf {return Leaf{Name:name}}
 
+//等价写法
 //部分字段初始化
 wire.Struct(new(Leaf),"Name")
 //全字段初始化
@@ -159,6 +162,7 @@ FieldsOf函数可以将结构体中的对应字段作为Provider，供wire使用
 //获得Leaf中Name字段的Provider
 func NewName(l Leaf) string {return l.Name}
 
+//等价写法
 //FieldsOf的方式获得结构体内的字段
 wire.FieldsOf(new(Leaf),"Name")
 ```
@@ -176,6 +180,7 @@ func NewLeaf()Leaf{
     }
 }
 
+//等价写法
 wire.Value(Leaf{Name:"leaf"})
 ```
 以上两个函数在作为Provider上也是等价的，可以出现在Build或NewSet中。
@@ -291,6 +296,8 @@ wire.Build(NewLeaf,NewRranch,NewRoot) //错误 cycle for XXX
 wire是一个强大的工具，它在不运行Go程序的基础上，借助于特定文件("//+build wireinject")的解析，自动生成对象的构造函数代码。
 
 Go语言工程化的过程中，涉及到诸多对象的包级别归类，wire可以很好的协助我们完成复杂对象的构建过程。
+
+
 
 ## 还想了解更多吗？
 
