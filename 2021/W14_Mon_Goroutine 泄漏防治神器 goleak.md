@@ -14,14 +14,14 @@ goroutine 的泄漏通常伴随着复杂的协程间通信，代码评审和常�
 
 ## goroutine 泄漏举例
 
-先举个 goroutine 泄漏的例子；如下所示，`leak` 方法中的 `ch` 永远没有写操作且不会关闭，读取 `ch` 的 goroutine 一直处于阻塞状态，这是一种很典型的 goroutine 泄漏。
+先举个 goroutine 泄漏的例子；如下所示，`leak` 方法中的 `ch` 永远没有读操作且不会关闭，写入 `ch` 的 goroutine 一直处于阻塞状态，这是一种很典型的 goroutine 泄漏。
 
 ```go
 func leak() {
-	ch := make(chan struct{})
-	go func() {
-		ch <- struct{}{}
-	}()
+    ch := make(chan struct{})
+    go func() {
+        ch <- struct{}{}
+    }()
 }
 ```
 
@@ -29,7 +29,7 @@ func leak() {
 
 ```go
 func TestLeak(t *testing.T) {
-	leak()
+    leak()
 }
 ```
 
@@ -55,8 +55,8 @@ ok      cool-go.gocn.vip/goleak 0.007s
 
 ```go
 func TestLeakWithGoleak(t *testing.T) {
-	defer goleak.VerifyNone(t)
-	leak()
+    defer goleak.VerifyNone(t)
+    leak()
 }
 ```
 
@@ -87,7 +87,7 @@ FAIL    cool-go.gocn.vip/goleak 0.459s
 
 ```go
 func TestMain(m *testing.M) {
-	goleak.VerifyTestMain(m)
+    goleak.VerifyTestMain(m)
 }
 ```
 
@@ -121,7 +121,7 @@ $ go test -c -o tests
 # Run each test individually, printing "." for successful tests, or the test name
 # for failing tests.
 $ for test in $(go test -list . | grep -E "^(Test|Example)"); do
-	./tests -test.run "^$test\$" &>/dev/null && echo -n "." || echo "\n$test failed"
+    ./tests -test.run "^$test\$" &>/dev/null && echo -n "." || echo "\n$test failed"
 done
 ```
 
@@ -133,13 +133,13 @@ done
 
 ## 参考资料
 
-* https://github.com/uber-go/goleak
-* https://pkg.go.dev/go.uber.org/goleak
-* https://rakyll.org/leakingctx/
-* https://github.com/golang/go/issues/6705
-* https://medium.com/golangspec/goroutine-leak-400063aef468
-* https://dave.cheney.net/2016/12/22/never-start-a-goroutine-without-knowing-how-it-will-stop
+* [https://github.com/uber-go/goleak](https://github.com/uber-go/goleak)
+* [https://pkg.go.dev/go.uber.org/goleak](https://pkg.go.dev/go.uber.org/goleak)
+* [https://rakyll.org/leakingctx/](https://rakyll.org/leakingctx/)
+* [https://github.com/golang/go/issues/6705](https://github.com/golang/go/issues/6705)
+* [https://medium.com/golangspec/goroutine-leak-400063aef468](https://medium.com/golangspec/goroutine-leak-400063aef468)
+* [https://dave.cheney.net/2016/12/22/never-start-a-goroutine-without-knowing-how-it-will-stop](https://dave.cheney.net/2016/12/22/never-start-a-goroutine-without-knowing-how-it-will-stop)
 
 ---
 
-欢迎加入 GOLANG 中国社区：https://gocn.vip
+欢迎加入 GOLANG 中国社区：[https://gocn.vip](https://gocn.vip)
