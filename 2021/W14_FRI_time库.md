@@ -9,7 +9,7 @@
 ## 二、应用场景
 > 1. 获取当前各种时间
 > 2. 各种时间差计算
-> 3. 时间戳格式转换
+> 3. 时间戳、时间格式转换
 > 4. 各种时间格式化输出
 > 5. 时区问题
 > 6. 定时器设置
@@ -188,33 +188,56 @@ utc 时区：UTC
 ```
 
 
-
-
 ## 6. 定时器设置
 包括获取时间戳，Time转字符串，字符串转Time。
 ```go
 package main
+
 import (
 	"fmt"
 	"time"
 )
 func main() {
-	now := time.Now()
+	tick := time.Tick(time.Second)
+	go func() {
+		for {
+			select {
+			case <-tick:
+				fmt.Printf("now time: %v \n", time.Now().Format("2006-01-02 15:04:05"))
+			}
+		}
+	}()
 
-	loc := now.Location()
-	fmt.Printf("时区：%v \n", loc)
-
-	utcLoc := now.UTC().Location()
-	fmt.Printf("utc 时区：%v \n", utcLoc)
+	time.Sleep(time.Hour)
 }
+
 ```
 输出如下：
 ```
-时区：Local 
-utc 时区：UTC 
+now time: 2021-04-01 18:28:34 
+now time: 2021-04-01 18:28:35 
+now time: 2021-04-01 18:28:36 
+now time: 2021-04-01 18:28:37 
+now time: 2021-04-01 18:28:38 
+now time: 2021-04-01 18:28:39 
+now time: 2021-04-01 18:28:40 
+now time: 2021-04-01 18:28:41 
+now time: 2021-04-01 18:28:42 
 ```
 
+## 总结
 
+`time`库的熟练使用，对我们进行各种时间操作带来大量的好处。无论进行时间差计算，时间戳转换，还是格式化输出，定时器设置等等都非常方便。
+
+## 参考资料
+
+* [https://studygolang.com/articles/9567](https://studygolang.com/articles/9567k)
+* [https://books.studygolang.com/The-Golang-Standard-Library-by-Example/chapter04/04.4.html](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/chapter04/04.4.html)
+* [https://www.jianshu.com/p/3b4b1e1f71f2](https://www.jianshu.com/p/3b4b1e1f71f2)
+
+---
+
+欢迎加入 GOLANG 中国社区：[https://gocn.vip](https://gocn.vip)
 
 
 
