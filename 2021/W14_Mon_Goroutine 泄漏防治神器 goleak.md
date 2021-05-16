@@ -35,7 +35,7 @@ func TestLeak(t *testing.T) {
 
 用 `go test` 执行测试看看结果：
 
-```
+```bash
 $ go test -v -run ^TestLeak$
 === RUN   TestLeak
 --- PASS: TestLeak (0.00s)
@@ -62,7 +62,7 @@ func TestLeakWithGoleak(t *testing.T) {
 
 这次的 `go test` 失败了：
 
-```
+```bash
 $ go test -v -run ^TestLeakWithGoleak$
 === RUN   TestLeakWithGoleak
     leaks.go:78: found unexpected goroutines:
@@ -93,7 +93,7 @@ func TestMain(m *testing.M) {
 
 这次的 `go test` 输出如下：
 
-```
+```bash
 $ go test -v -run ^TestLeak$
 === RUN   TestLeak
 --- PASS: TestLeak (0.00s)
