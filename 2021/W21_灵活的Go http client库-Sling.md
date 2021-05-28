@@ -57,6 +57,8 @@ func (s *IssueService) ListByRepo(owner, repo string, params *IssueListParams) (
 
 ## 总结
 
+Sling 的默认实现可以覆盖大部分对于 http 发送请求场景，同时可以通过实现 Doer 和 ResponseDecoder 接口来扩展个性化的场景。
+
 ## 参考资料
 
 1. [https://github.com/dghubble/sling](https://github.com/dghubble/sling)
