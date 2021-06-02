@@ -117,7 +117,7 @@ if err := g.Wait();err != nil {
 ### 加强版本
 下面是kratos的errgroup加强版，其针对几个问题作出的改进。
 
-```
+```go
 //基础版本
 type Group struct {
 	cancel func()
@@ -142,12 +142,13 @@ type Group struct {
     cancel func()
 }
 ```
+
 我们先从结构体定义的角度来看待加强点。
 * ch、chs、workerOnce用于控制goroutine的**并发数量**,在基础版的代码中我们发现在使用Go(function()error)函数的调用过程中是全开放的，即对于同时进行的goroutine数量并没有做限制。kratos在基础版本的基础上添加了一个chan控制并发数量，一个slice来缓存为并发的函数指针。
 * kratos将产生的context对象缓存，并且更改了方法Go的函数签名加入了context参数，即func (g *Group) Go(f func(ctx context.Context) error)。在基础版本中，当error发生的是时候函数，仍然需要等到所有goroutine运行结束才会返回，kratos的Group可以使用成员函数ctx作为参数，从而控制全部并发的**生命周期**。
 
 #### 控制并发数量源码分析
-```
+```go
 func (g *Group) Go(f func(ctx context.Context) error) {
 	g.wg.Add(1)
 	if g.ch != nil {
@@ -200,7 +201,7 @@ GOMAXPROCE 函数初始化g.ch用于开启并发数量控制的开关。并且�
 Wait函数中会不断将缓存中的函数不断压入chan中进行消费。
 
 #### 使用案例
-```
+```go
 func sleep1s(context.Context) error {
 	time.Sleep(time.Second)
 	return nil
@@ -227,4 +228,4 @@ kratos的加强版errgroup从统一goroutine控制，defer错误捕获，并发�
 ## 参考资料
 https://github.com/golang/sync/blob/master/errgroup/errgroup.go
 
-https://github.com/go-kratos/kratos/tree/v1.0.x/pkg/sync/errgrou
+https://github.com/go-kratos/kratos/tree/v1.0.x/pkg/sync/errgroup
