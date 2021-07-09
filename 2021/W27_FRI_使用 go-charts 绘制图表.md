@@ -188,3 +188,4 @@ func main() {
 ## 参考资料
 
 - [github.com/go-echarts/go-echarts/v2/charts](github.com/go-echarts/go-echarts/v2/charts)
+- [图片上传及查看，使用swarm网关实现](https://swarm-gateways.net/)
