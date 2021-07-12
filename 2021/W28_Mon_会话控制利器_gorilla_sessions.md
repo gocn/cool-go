@@ -45,13 +45,13 @@ var Response http.ResponseWriter
 func StartSession(w http.ResponseWriter, r *http.Request) {
 	Store, _ := Store.Get(r, "session-name")
 	// Set some session values.
-	session.Values["foo"] = "bar"
-	session.Values[42] = 43
+	Session.Values["foo"] = "bar"
+	Session.Values[42] = 43
 	//外部可以这么设置
 	//Set("foo","bar")
 	//Set("age", 22)
 	// Save it before we write to the response/return from the handler.
-	session.Save(r, w)
+	Session.Save(r, w)
 	
 	Request = r
 	Response = w
