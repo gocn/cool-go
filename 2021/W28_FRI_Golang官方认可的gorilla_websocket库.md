@@ -51,6 +51,7 @@ go get github.com/gorilla/websocket
 ### 基础示例
 
 下面以一个简单的echo来说明gorilla/websocket库基本使用。
+
 client代码：
 
 ```go
@@ -190,7 +191,7 @@ func main() {
 
 ## 总结
 
-gorilla/websocket库是websocket协议的一种实现，相比标准库的实现，封装了协议细节，使用者关注message粒度的API即可，但需要注意message的读写API非并发安全，使用上要注意不要多个协程并发调用。
+gorilla/websocket库是websocket协议的一种实现，相比标准库的实现，封装了协议细节，使用者关注message粒度的API即可，但需要注意message的读写API非并发安全，使用时注意不要多个协程并发调用。
 
 ## 参考资料
 
