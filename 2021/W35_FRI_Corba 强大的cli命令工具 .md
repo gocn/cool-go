@@ -53,7 +53,7 @@
 
 参数用来确定要运行的子命令，cobra工具自动生成文件只支持一级子命令。但是通过对cmd中代码分析我们发现通过修改cmd/xxx.go文件中的init函数我们可以做到多层级子命令。
 
-```jsx
+```go
 func init() {
         rootCmd.AddCommand(sub1Cmd) // => xxxCmd.AddCommand(sub1Cmd)
 }
@@ -86,7 +86,7 @@ xxxCmd.PersistentFlags().StringVarP(&str, "foo", "f", "", "A help for foo")
 
 局部标识仅仅当此命令运行时会去获取标识的值。
 
-```jsx
+```go
 curstr = xxxCmd.Flags().String("foo","default","help of foo")
 curstrP = xxxCmd.Flags().StringP("foo","f","default","help of foo")
 xxxCmd.Flags().StringVar("foo","default","help of foo")
@@ -97,7 +97,7 @@ xxxCmd.Flags().StringVarP(&str, "foo", "f", "", "A help for foo")
 
 其中root.go文件中的init函数为
 
-```jsx
+```go
 //root.go
 func init(){
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.demo.yaml)")
@@ -121,7 +121,7 @@ Flags:
 
 test.go中init函数为
 
-```jsx
+```go
 test.go
 func init(){
 	testCmd.Flags().String("testfoo", "default", "A help for foo")
@@ -148,7 +148,7 @@ Global Flags:
 
 这一部分比较简单，执行体就在cmd/xxx.go文件中xxxCmd结构体中的Run函数中。
 
-```jsx
+```go
 var testCmd = &cobra.Command{
         Use:   "test",
         Short: "A brief description of your command",
