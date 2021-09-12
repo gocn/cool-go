@@ -76,11 +76,11 @@ $ export CGO_CFLAGS_ALLOW=-Xpreprocessor
 
 ### 开始使用
 
-在项目根目录创建 `main.go` 文件，并准备两张测试图片；分别是 `example.png` ：
+在项目根目录创建 `main.go` 文件，并准备两张测试图片；分别是原始图片 `example.png` ：
 
 ![](https://gocn.oss-cn-shanghai.aliyuncs.com/photo/Aklman/449c7b2d-6baf-46d6-be83-b6e65edb21a4.png?x-oss-process=image%2Fresize%2Cw_1920)
 
-以及用作水印的图片和 `logo.png` ：
+以及用作水印的图片 `logo.png` ：
 
 ![](https://gocn.oss-cn-shanghai.aliyuncs.com/photo/Aklman/5390a237-acbe-4dfd-94ac-fa1204fa1024.png?x-oss-process=image%2Fresize%2Cw_1920)
 
