@@ -3,7 +3,7 @@
 ## 1. gopg-migrations 是什么？
 [gopg-migrations](github.com/go-pg/migrations/v7) 在我们使用数据库时，每次发布都要改一些表结构，或者修改数据之类的操作。
 
-这些操作，手动执行既危险，又容易忘记；当新人看到奇怪的表结构，感觉到很诧异。如果我们能将左右操作管理起来，本地测试好之后再发布上去，那么就不会有上述这些问题。
+这些操作，手动执行既危险，又容易忘记；当新人看到奇怪的表结构，感觉到很诧异。如果我们能将所有操作管理起来，本地测试好之后再发布上去，那么就不会有上述这些问题。
 
 因此，gopg-migrations这个库，给我们带来非常大的便利。当然，这里是对postgres数据库的支持。
 
@@ -14,8 +14,8 @@
 2.1 假如我们先创建一个数据库 students，然后调用 migrations 去执行代码。
 
    步骤如下：
-    - 编写创建表的sql，使用migrations目录管理起来，num_xxx 表示按照num顺序执行
-    - 主逻辑
+- 编写创建表的sql，使用migrations目录管理起来，num_xxx 表示按照num顺序执行
+- 主逻辑
    
 main.go 主逻辑如下：
 ```go
@@ -55,7 +55,7 @@ func main() {
 
 ```
 
-go-pg-migrations相关函数编码如下：
+gopg-migrations相关函数编码如下：
 ```go
 package pg
 
@@ -181,8 +181,8 @@ sql如下：
 
 2.2 假设我们要增加sql语句，怎么做呢？
 
-   - 直接添加sql
-   - 重新运行
+- 直接添加sql
+- 重新运行
    
 sql如下：
 ![alt 条形图](https://swarm-gateways.net/bzz:/7bd44d2815dd5bc1e441eb7b0e0f3b432a5c04a1ea16d08ba6cd149ddfac1387/pg3)
@@ -200,7 +200,7 @@ sql如下：
 
 ## 总结
 
-[migrations](github.com/go-pg/migrations/v7) 这个库，能够把数据库所有的操作sql全部管理起来，一方面可以让我们清晰的看到sql项目的发展历程，另一方面本地测试后发布更加安全！
+[gopg-migrations](github.com/go-pg/migrations/v7) 这个库，能够把数据库所有的操作sql全部管理起来，一方面可以让我们清晰的看到sql项目的发展历程，另一方面本地测试后发布更加安全！
 
 
 以上所有内容均采用最新官方案例做示例
