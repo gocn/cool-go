@@ -168,7 +168,8 @@ func WithContextTimeoutValue(ctx context.Context, timeout time.Duration, f func(
 直接运行 go run main.go，此时代码运行，会生成students数据表：
 
 sql如下：
-![alt 条形图](https://swarm-gateways.net/bzz:/5efd0c8cfe6d016e2d6f9eabd7f316cd24b0676431d7ab1927b7928410502ac6/pg1)
+![alt 条形图](https://swarm-gateways.net/bzz:/5efd0c8cfe6d016e2d6f9eabd7f316cd24b0676431d7ab1927b7928410502ac6/pg1.png)
+
 
 执行后，会创建号数据表： students 和 gopg-migrations。
 ![alt 条形图](https://swarm-gateways.net/bzz:/2a4fe362549c30441f6e14c6a6a11e8ef18251e7a888a7fef327f493628774cf/pg6)
