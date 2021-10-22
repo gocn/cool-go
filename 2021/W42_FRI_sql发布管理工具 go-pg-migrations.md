@@ -172,11 +172,11 @@ sql如下：
 
 
 执行后，会创建号数据表： students 和 gopg-migrations。
-![alt 条形图](https://swarm-gateways.net/bzz:/2a4fe362549c30441f6e14c6a6a11e8ef18251e7a888a7fef327f493628774cf/pg6)
+![alt 条形图](https://swarm-gateways.net/bzz:/a17cb08722a105678eb03210ebb785e7131e5d21316c69e3600cd47aeb2479e5/pg6.png)
 
 查看 gopg-migrations如下：
 
-![alt 条形图](https://swarm-gateways.net/bzz:/6a949f9b20c93f85c96d5c171ecab78b707dfa3155b929966115b373e9ea54ba/pg2)
+![alt 条形图](https://swarm-gateways.net/bzz:/50e130d4a8337e545536cf249b435c83b527c38f0c3003808e79a7c7704e3bcf/pg2.png)
 
 
 
@@ -186,13 +186,13 @@ sql如下：
 - 重新运行
    
 sql如下：
-![alt 条形图](https://swarm-gateways.net/bzz:/7bd44d2815dd5bc1e441eb7b0e0f3b432a5c04a1ea16d08ba6cd149ddfac1387/pg3)
+![alt 条形图](https://swarm-gateways.net/bzz:/290f87a7d93dd43651b5f3842d8059e763237551b5ca2fa44135873a7be25ecb/pg3.png)
 
 执行如下：
-![alt 条形图](https://swarm-gateways.net/bzz:/1adb334502417b1aaf0738c2b87470cc1d1c826849f690e458d3a78e6c191dc1/pg4)
+![alt 条形图](https://swarm-gateways.net/bzz:/84ee116ba02b6480f63c9538571f881a98dca0b0cd7f40c3fdf0b64cb8963abb/pg4.png)
 
 查看students数据表，发现1，2操作都已经执行了：
-![alt 条形图](https://swarm-gateways.net/bzz:/2fc05d4665f240a051500c1ec55d62b37174f355046a9a42d7005e345ab7080e/pg5)
+![alt 条形图](https://swarm-gateways.net/bzz:/3754e6aea9b6e359d4ed7dcb4360f16bd23e1abf01d5e29859b30c76abe0a6c4/pg5.png)
 
 2.3.管理sql语句
 类似1，2中的方式，我们可以添加更多的sql语句，把sql管理起来。
