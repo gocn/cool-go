@@ -23,7 +23,7 @@ go get github.com/antlabs/timer
 
 ### 代码示例
 
-下面是两个简单的例子：
+下面是一个简单的例子：
 
 ```golang
 package main
