@@ -26,9 +26,11 @@ $ cd cmd/btfs
 $ go build
 
 ``` 
-此处生成btfs可执行文件，可以导入到 /usr/local/bin 下面处理。
+
+此处生成btfs可执行文件，可以导入到 /usr/local/bin 下面.
 
 2.2 启动本地BTFS节点
+
 ```shell
 # 设置BTFS节点存储地址空间，换一个就可以起一个新节点
 $export BTFS_PATH=/Users/laocheng.cheng/.btfs.ll
@@ -42,7 +44,6 @@ peer identity: 16Uiu2HAmCQadnAGfADbwi9DmdjZcHPzFNR3r72hfnMPrCEQKjN2k
 to get started, enter:
 
 	btfs cat /btfs/QmZjrLVdUpqVU6Pnc8pBnyQxVdpn9J8tfcsycP84W6N93C/readme
-
 
 $ btfs daemon
 Initializing daemon...
@@ -74,30 +75,31 @@ Daemon is ready
 $ btfs config profile apply storage-host
 
 ```
+
 当`btfs daemon`启动后，
 `/Users/laocheng.cheng/.btfs.lll` 这个是我们的地址空间，
 `16Uiu2HAmCQadnAGfADbwi9DmdjZcHPzFNR3r72hfnMPrCEQKjN2k` 这个是节点ID，其他节点就是通过节点ID和其沟通。
 
 2.3 再次启动一个新节点
+
 新起一个终端，过程同上
 ```shell
 # 设置BTFS节点存储地址空间
 $export BTFS_PATH=/Users/laocheng.cheng/.btfs.ggg
 
 $ btfs init 
-xxx
-
+......
 
 $ btfs daemon
 
 # 配置为host存储模式
 $ btfs config profile apply storage-host
-
-xxx
+......
 
 ```
 
 2.4 组建本地私有网络
+
 特别注意的问题，现在启动的节点，是和BTFS真实网络连接，我们需要一些修改，变成本地网络方式。
 此时，选中一个终端，即一个节点；先bootstrap设空，然后把自己创建的节点，全部加入（当然，不用加该终端节点）。
 ```shell
@@ -113,6 +115,7 @@ btfs bootstrap add /ip4/127.0.0.1/tcp/54001/p2p/16Uiu2HAmCQadnAGfADbwi9DmdjZcHPz
 2.5 上传文件 及 任意节点可查看
 
 打开一个节点（终端），上传文件如下
+
 ```shell
 $ btfs add s
 added Qmefmseqwa8un9WXEfqb2GY2ncWmmB2BsAqtcjVJaHahL3 s
@@ -120,14 +123,17 @@ added Qmefmseqwa8un9WXEfqb2GY2ncWmmB2BsAqtcjVJaHahL3 s
 ```
 
 打开另外一个节点（终端），下载文件到本地
+
 ```shell
 $ btfs get QmduujE1EgUajwCj2bxjdp4LWz62aameQJmQc7pcBbeAmC
 Saving file(s) to QmduujE1EgUajwCj2bxjdp4LWz62aameQJmQc7pcBbeAmC
  27 B / 27 B [================================================================] 100.00% 0s
 ```
+
 如此一来，私有云的上传下载就搞定了。
 
 3.具体应用
+
 上面我们就私有云的搭建，及上传、下载操作搞定了。
 那么对应的应用方案就容易理解，比如你开发一个存储网站。后端数据用咱们的私有云，上传一个key（文件名），对应一个value（文件hash）。
 然后我们把key：value记录到mysql or redis。一个存储类网站的基础功能就完成啦。
