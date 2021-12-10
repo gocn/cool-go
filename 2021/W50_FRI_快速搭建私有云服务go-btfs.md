@@ -29,7 +29,6 @@ $ go build
 此处生成btfs可执行文件，可以导入到 /usr/local/bin 下面处理。
 
 2.2 启动本地BTFS节点
-gopg-migrations相关函数编码如下：
 ```shell
 # 设置BTFS节点存储地址空间，换一个就可以起一个新节点
 $export BTFS_PATH=/Users/laocheng.cheng/.btfs.ll
