@@ -1,7 +1,7 @@
 # 快速搭建私有云服务 go-btfs
 
 ## 1. go-btfs 是什么？
-[go-btfs](github.com/tron-us/go-btfs) go-btfs是一个去中心化的文件存储平台，无论图片、文件、视频等等各类文件。
+[go-btfs](https://github.com/tron-us/go-btfs) go-btfs是一个去中心化的文件存储平台，无论图片、文件、视频等等各类文件。
 每个人都可以在自己电脑上安装部署BTFS节点，然后大家的节点相互连接，构成一个整体网络，
 网络中某一个节点上传文件，其他节点就像访问本地一样直接下载使用。同时，它还支持冗余备份，使用reed-solomn方案，这块更加牛逼。
 
@@ -141,12 +141,12 @@ Saving file(s) to QmduujE1EgUajwCj2bxjdp4LWz62aameQJmQc7pcBbeAmC
 
 ## 总结
 
-[go-btfs](github.com/tron-us/go-btfs) go-btfs是一个去中心化的文件存储平台，各种类型文件都能上传，并且安装方便，经过基本配置，就可以快速搭建自己的私有云服务。
+[go-btfs](https://github.com/tron-us/go-btfs) go-btfs是一个去中心化的文件存储平台，各种类型文件都能上传，并且安装方便，经过基本配置，就可以快速搭建自己的私有云服务。
 非常推荐大家使用，尤其企业内部云平台搭建使用。
 
 
 以上所有内容均采用最新官方案例做示例
 ## 参考资料
 
-- [查看go-btfs源代码](github.com/tron-us/go-btfs)
+- [查看go-btfs源代码](https://github.com/tron-us/go-btfs)
 - [go-btfs官方文档参考](https://docs.btfs.io/docs)
