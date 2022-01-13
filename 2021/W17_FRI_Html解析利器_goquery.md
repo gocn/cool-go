@@ -89,10 +89,10 @@ fmt.Println(selection.Text())
 
 ### ID选择器
 
-以#加id值作为选择器
+以[[加id]]值作为选择器
 
 ```go
-dom.Find("#id").Each(func (i int, selection *goquery.Selection) {
+dom.Find("[[id]]").Each(func (i int, selection *goquery.Selection) {
 fmt.Println(selection.Text())
 })
 ```
@@ -130,7 +130,7 @@ fmt.Println(selection.Text())
 ### Attr() 返回节点的属性值以及该属性是否存在的布尔值
 
 ```go
-dom.Find("#execution").Each(func (i int, selection *goquery.Selection) {
+dom.Find("[[execution]]").Each(func (i int, selection *goquery.Selection) {
 value[i], ok = selection.Attr("value")
 })
 ```
