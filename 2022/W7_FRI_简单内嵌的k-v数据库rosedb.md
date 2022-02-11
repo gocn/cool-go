@@ -21,19 +21,19 @@ rosedb 使用Golang实现，支持多种数据结构，包含 String、List、Ha
 
 ## 3.rosedb 支持命令
 String
--Set、SetNx、Get、GetSet、Append、StrLen、StrExists、StrRem、PrefixScan、RangeScan、Expire、Persist、TTL
+* Set、SetNx、Get、GetSet、Append、StrLen、StrExists、StrRem、PrefixScan、RangeScan、Expire、Persist、TTL
 
 List
--LPush、RPush、LPop、RPop、LIndex、LRem、LInsert、LSet、LTrim、LRange、LLen
+* LPush、RPush、LPop、RPop、LIndex、LRem、LInsert、LSet、LTrim、LRange、LLen
 
 Hash
--HSet、HSetNx、HGet、HGetAll、HDel、HExists、HLen、HKeys、HValues
+* HSet、HSetNx、HGet、HGetAll、HDel、HExists、HLen、HKeys、HValues
 
 Set
--SAdd、SPop、SIsMember、SRandMember、SRem、SMove、SCard、SMembers、SUnion、SDiff
+* SAdd、SPop、SIsMember、SRandMember、SRem、SMove、SCard、SMembers、SUnion、SDiff
 
-Zset、
--ZAdd、ZScore、ZCard、ZRank、ZRevRank、ZIncrBy、ZRange、ZRevRange、ZRem、ZGetByRank、ZRevGetByRank、ZScoreRange、ZRevScoreRange
+Zset
+* ZAdd、ZScore、ZCard、ZRank、ZRevRank、ZIncrBy、ZRange、ZRevRange、ZRem、ZGetByRank、ZRevGetByRank、ZScoreRange、ZRevScoreRange
 
 
 ## 4.命令行使用举例
