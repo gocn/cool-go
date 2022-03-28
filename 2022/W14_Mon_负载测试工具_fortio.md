@@ -26,7 +26,7 @@ fortio
 页面中填写测试对象相关信息后点击 `Start` 按钮开始，测试完成后跳转到测试结果页面，再结果页面,部分结果内容如下：
 ![fortio](./images/w14_mon_fortio_result.png)
 
-除了 Web 端外，Fortio 还支持强大的命令行参数的进行负载测试，终端中以下格式输入确定即进行测试:`fortio load -c 100 -n 20 -qps 1000 https://gocn.vip/`
+除了 Web 端外，Fortio 还提供了强大的命令行参数的进行负载测试，终端中以下格式输入命令确认即进行测试:`fortio load -c 100 -n 20 -qps 1000 https://gocn.vip/`
 
 常用命令行参数如下：
 
