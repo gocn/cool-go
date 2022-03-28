@@ -26,7 +26,48 @@ fortio
 页面中填写测试对象相关信息后点击 `Start` 按钮开始，测试完成后跳转到测试结果页面，再结果页面,部分结果内容如下：
 ![fortio](./images/w14_mon_fortio_result.png)
 
-除了 Web 端外，Fortio 还提供了强大的命令行参数的进行负载测试，终端中以下格式输入命令确认即进行测试:`fortio load -c 100 -n 20 -qps 1000 https://gocn.vip/`
+除了 Web 端外，Fortio 还提供了强大的命令行参数的进行负载测试，终端中以下格式输入命令确认即进行测试并输出测试结果:`fortio load -c 100 -n 20 -qps 1000 https://gocn.vip/`
+
+测试结果如下：
+```shell
+Fortio 1.23.0 running at 1000 queries per second, 8->8 procs, for 20 calls: https://gocn.vip/
+10:33:12 I httprunner.go:87> Starting http test for https://gocn.vip/ with 100 threads at 1000.0 qps and parallel warmup
+10:33:13 W periodic.go:346> Lowering number of threads - total call 20 -> lowering from 100 to 10 threads
+Starting at 1000 qps with 10 thread(s) [gomax 8] : exactly 20, 2 calls each (total 20 + 0)
+10:33:13 I periodic.go:693> T002 ended after 139.952709ms : 2 calls. qps=14.290541528567339
+10:33:13 I periodic.go:693> T000 ended after 139.992084ms : 2 calls. qps=14.286522086491692
+10:33:13 I periodic.go:693> T008 ended after 141.004834ms : 2 calls. qps=14.183910886345926
+10:33:13 I periodic.go:693> T001 ended after 144.553625ms : 2 calls. qps=13.83569592253394
+10:33:13 I periodic.go:693> T003 ended after 144.564125ms : 2 calls. qps=13.834691006499712
+10:33:13 I periodic.go:693> T009 ended after 144.592292ms : 2 calls. qps=13.83199596836047
+10:33:13 I periodic.go:693> T004 ended after 146.43825ms : 2 calls. qps=13.657633849079732
+10:33:13 I periodic.go:693> T005 ended after 146.454084ms : 2 calls. qps=13.656157243112455
+10:33:13 I periodic.go:693> T006 ended after 146.479042ms : 2 calls. qps=13.653830423058064
+10:33:13 I periodic.go:693> T007 ended after 148.178ms : 2 calls. qps=13.497280298019948
+Ended after 148.189334ms : 20 calls. qps=134.96
+Aggregated Sleep Time : count 10 avg -0.11213263 +/- 0.002581 min -0.11595625 max -0.108170875 sum -1.12132625
+# range, mid point, percentile, count
+>= -0.115956 <= -0.108171 , -0.112064 , 100.00, 10
+# target 50% -0.112496
+WARNING 100.00% of sleep were falling behind
+Aggregated Function Time : count 20 avg 0.071563969 +/- 0.05951 min 0.010782834 max 0.135016792 sum 1.43127937
+# range, mid point, percentile, count
+>= 0.0107828 <= 0.011 , 0.0108914 , 5.00, 1
+> 0.011 <= 0.012 , 0.0115 , 20.00, 3
+> 0.012 <= 0.014 , 0.013 , 50.00, 6
+> 0.12 <= 0.135017 , 0.127508 , 100.00, 10
+# target 50% 0.014
+# target 75% 0.127508
+# target 90% 0.132013
+# target 99% 0.134716
+# target 99.9% 0.134987
+Sockets used: 10 (for perfect keepalive, would be 10)
+Uniform: false, Jitter: false
+Code 200 : 20 (100.0 %)
+Response Header Sizes : count 20 avg 252 +/- 0 min 252 max 252 sum 5040
+Response Body/Total Sizes : count 20 avg 2166 +/- 0 min 2166 max 2166 sum 43320
+All done 20 calls (plus 0 warmup) 71.564 ms avg, 135.0 qps
+```
 
 常用命令行参数如下：
 
@@ -45,7 +86,7 @@ fortio
 | -a | 根据标签和时间戳自动保存带有文件名的JSON结果                                                                     |
 | -json filename | stdout 输出 json 结果的文件名或-（默认相对于 -data-dir），如果希望 fortio report 显示它们，则应以 .json 结尾；使用 -a 通常是更好的选择） |
 
-以上是常用的基本命令参数，更多命令参数请在终端输入 `fortio help` 查看。
+以上表格中的都是常用的基本命令参数，若更多命令参数请在终端输入 `fortio help` 查看。
 
 
 ## 总结
