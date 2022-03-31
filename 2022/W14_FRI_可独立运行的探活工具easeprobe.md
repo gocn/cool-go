@@ -1,4 +1,4 @@
-# 探活工具easeprobe
+# 可独立运行的探活工具easeprobe
 
 ## 推荐理由
 
