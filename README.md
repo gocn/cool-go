@@ -4,7 +4,7 @@
 
 > 用最犀利的言语，阐述一个库、一个框架、一个工具的用法，这是酷Go最有价值的地方
 >
-> 道阻且长，我们仍在继续，欢迎您的加入
+> 道阻且长，我们仍在继续，欢迎您的加入  （加入酷Go推荐 微信：gocnio）
 
 ### 不正经介绍
 
@@ -203,13 +203,45 @@
 * [依赖注入工具代码生成器 wire](https://gocn.vip/topics/dwNq62CpQn)
 * [让 json 解析更简单高效的 GJSON](https://gocn.vip/topics/qQPqL0fZw3)
 
+
+
+## Contributors
+
+Thanks for these wonderful people:
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/turingczz"><img src="https://avatars.githubusercontent.com/u/9589084?v=4" width="64px;" alt=""/><br /><sub><b>turingczz</b></sub></a></td>
+    <td align="center"><a href="https://github.com/jacobxy"><img src="https://avatars.githubusercontent.com/u/5415262?v=4" width="64px;" alt=""/><br /><sub><b>jacobxy</b></sub></a></td>
+    <td align="center"><a href="https://github.com/aklmans"><img src="https://avatars.githubusercontent.com/u/40570337?v=4" width="64px;" alt=""/><br /><sub><b>aklmans</b></sub></a></td>
+    <td align="center"><a href="https://github.com/blanet"><img src="https://avatars.githubusercontent.com/u/12847739?v=4" width="64px;" alt=""/><br /><sub><b>blanet</b></sub></a></td>
+    <td align="center"><a href="https://github.com/jaronnie"><img src="https://avatars.githubusercontent.com/u/77253497?v=4" width="64px;" alt=""/><br /><sub><b>jaronnie</b></sub></a></td>
+    <td align="center"><a href="https://github.com/hausliu"><img src="https://avatars.githubusercontent.com/u/43375666?v=4" width="64px;" alt=""/><br /><sub><b>hausliu</b></sub></a></td>
+    <td align="center"><a href="https://github.com/ZRruirui"><img src="https://avatars.githubusercontent.com/u/34996018?v=4" width="64px;" alt=""/><br /><sub><b>ZRruirui</b></sub></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/anyanfei"><img src="https://avatars.githubusercontent.com/u/25575073?v=4" width="64px;" alt=""/><br /><sub><b>anyanfei</b></sub></a></td>
+    <td align="center"><a href="https://github.com/ronething"><img src="https://avatars.githubusercontent.com/u/28869910?v=4" width="64px;" alt=""/><br /><sub><b>ronething</b></sub></a></td>
+    <td align="center"><a href="https://github.com/kevwan"><img src="https://avatars.githubusercontent.com/u/1918356?v=4" width="64px;" alt=""/><br /><sub><b>kevwan</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Hkesd"><img src="https://avatars.githubusercontent.com/u/9124367?v=4" width="64px;" alt=""/><br /><sub><b>Hkesd</b></sub></a></td>
+    <td align="center"><a href="https://github.com/bazingame"><img src="https://avatars.githubusercontent.com/u/25435118?v=4" width="64px;" alt=""/><br /><sub><b>bazingame</b></sub></a></td>
+    <td align="center"><a href="https://github.com/astaxie"><img src="https://avatars.githubusercontent.com/u/233907?v=4" width="64px;" alt=""/><br /><sub><b>astaxie</b></sub></a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ## 还想了解更多吗？
 
-喜欢看源码的大佬看这哈儿：https://gocn.vip/talkgo
+喜欢看源码的大佬看这哈儿：https://github.com/gocn/opentalk
 
-想找组织嘞看这哈儿：https://gocn.vip/teams
-
-每天不抖音就抖脚（jio）的就看哈每日go大事贱：https://gocn.vip/topics/node18
+每天不抖音就抖脚（jio）的就看哈每日go大事贱：https://gocn.vip/topics/cate/18?page=1&grade=new
 
 加入我们GOLANG中国社区看这哈儿：https://gocn.vip/
 
