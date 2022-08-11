@@ -5,7 +5,7 @@ Elasticsearch是一个分布式、高扩展、高实时的搜索与数据分析�
 
 ## 安装
 ```shell
-	go get "github.com/olivere/elastic/v7"
+go get "github.com/olivere/elastic/v7"
 ```
 Elasticsearch的数据来源通常来自于Logstash等数据采集中间件，作为golang项目来说，其查询功能的使用更加普遍。
 此文章以V7版本为例来介绍如何使用golang对Elasticsearch进行查询。
@@ -119,7 +119,7 @@ for _,v := range users {
 ```
 
 ## 总结
-[官方库](github.com/elastic/go-elasticsearch)需要自己去构造查询的json结构，使用起来较为混乱，不易理解。相较而言，此开源库采用链式可嵌套的形式来构造查询对象，使用起来更加清晰便捷。其源码库中亦有相当多的各类函数和对象用于各种条件查询，此次只是摘取本人使用时设计过的些许功能加以介绍。
+[官方库](https://github.com/elastic/go-elasticsearch)需要自己去构造查询的json结构，使用起来较为混乱，不易理解。相较而言，此开源库采用链式可嵌套的形式来构造查询对象，使用起来更加清晰便捷。其源码库中亦有相当多的各类函数和对象用于各种条件查询，此次只是摘取本人使用时设计过的些许功能加以介绍。
 
 ## 参考资料
 1、[https://segmentfault.com/a/1190000039140870](https://segmentfault.com/a/1190000039140870)
