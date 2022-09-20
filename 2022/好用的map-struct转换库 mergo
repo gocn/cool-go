@@ -1,0 +1,146 @@
+# 好用的map-struct转换库 mergo
+
+## 1.前言
+
+开发时，经常会碰到要把map转成struct，或者把struct转成map，方便数据处理。这个时候我们可以用到
+[mergo](https://github.com/imdario/mergo) 。它非常简单、好用，辅助我们更高效的开发。
+
+## 2.特性
+mergo 有很多特性：
+
+- 支持struct转成map
+- map转成struct
+- 支持各种选项，比如覆盖写等
+- ... ....
+
+更多功能特性请查看：[mergo](https://github.com/imdario/mergo)
+
+## 3.快速安装
+直接get即可使用。
+```go
+$ go get -u github.com/imdario/mergo
+````
+
+## 4.简单举例
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+
+	"github.com/imdario/mergo"
+)
+
+type Student struct {
+	Name string
+	Num  int
+	Age  int
+}
+
+func main() {
+	var defaultStudent = Student{
+		Name: "zhang—san",
+		Num:  1,
+		Age:  18,
+	}
+
+	var m = make(map[string]interface{})
+	if err := mergo.Map(&m, defaultStudent); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("map m = %+v", m)
+}
+
+```
+
+执行，控制台输出如下：
+```
+map m = map[age:18 name:zhang—san num:1]
+```
+可以看到，struct赋值给map后，直接得到了结果。
+
+## 5.设置淘汰时间举例
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+
+	"github.com/imdario/mergo"
+)
+
+type Student struct {
+	Name string
+	Num  int
+	Age  int
+}
+
+func main() {
+	var defaultStudent = Student{}
+
+	var m = make(map[string]interface{})
+	m["name"] = "lisi"
+	m["num"] = 2
+	m["age"] = 20
+
+	if err := mergo.Map(&defaultStudent, m); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("struct defaultStudent = %+v", defaultStudent)
+}
+```
+
+执行，控制台输出如下：
+```
+struct defaultStudent = {Name:lisi Num:2 Age:20}
+```
+可以看到，map赋值给struct后，直接得到了结果。
+
+## 6.常用特性举例
+
+6.1 覆盖写特性
+比如map赋值给结构体，但是结构体中已经有了初始值，默认不覆盖，覆盖需要添加 WithOverride 特性
+  ```go
+    if err := mergo.Map(&m, defaultStudent, mergo.WithOverride); err != nil {
+        log.Fatal(err)
+    }
+  ```
+
+6.2 slice赋值
+可以把切片直接复制过去
+  ```go
+    if err := mergo.Map(&m, defaultStudent, mergo.WithAppendSlice); err != nil {
+        log.Fatal(err)
+    }
+  ```
+6.3 slice赋值，并覆盖原来的
+直接结合两个参数使用
+  ```go
+    if err := mergo.Map(&m, defaultStudent, mergo.WithAppendSlice, mergo.WithOverride); err != nil {
+        log.Fatal(err)
+    }
+  ```
+
+## 7.一些注意事项
+- 1.mergo 不会复制非导出字段
+- 2.map 使用时候，对应的key字段默认是小写的
+- 3.mergo 可以嵌套赋值
+
+## 6.总结
+
+`mergo` 在很多知名项目有应用，比如 kubernetes 等，map 和 struct 快速转换，也是很实用的一个功能。如果你在开发时候有这方面的需求，不妨试试看，相信一定会喜欢上的！
+
+
+## 参考资料
+
+* [mergo](https://github.com/imdario/mergo)
+
+---
+
+欢迎加入 GOLANG 中国社区：[https://gocn.vip](https://gocn.vip)
